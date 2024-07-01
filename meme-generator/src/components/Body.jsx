@@ -4,21 +4,35 @@ import Shimmer from './Shimmer';
 
 function Body() {
   
-  const [memes, setMemes] = useState(null);
+  const [memes, setMemes] = useState([]);
+  const [showShimmer , setShowShimmer] = useState(true);
   const fetchMemes = async () => {
+      setShowShimmer(true);
       const res = await fetch("https://meme-api.com/gimme/20");
       const memeData = await res.json();
-      console.log(memeData.memes);
-      setMemes(memeData.memes);
+      setShowShimmer(false);
+      setMemes((memes) => [...memes, ...memeData.memes]);
+  }
+
+  const handleScroll = () => {
+    if(window.scrollY + window.innerHeight >= document.body.scrollHeight) {
+        fetchMemes();
+    }
   }
 
   useEffect(() => {
     fetchMemes();
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
   },[]);
 
   return (
+    
     <div className='flex flex-wrap '>
-      {!memes ? <Shimmer/> : memes.map(meme => <MemeCard memeData={meme} />)}
+      {showShimmer && <Shimmer/>}
+      {memes.map((meme, index) => <MemeCard key={index} memeData={meme} />)}
     </div>
   )
 }

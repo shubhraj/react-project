@@ -17,7 +17,7 @@ const data = [
 ]
 
 function Accordion() {
-  const [openItemIndex, setOpenItemIndex] = useState(1);
+  const [openItemIndex, setOpenItemIndex] = useState(0);
 
   return (
     <div className='w-[50%] m-auto mt-10'>
