@@ -1,3 +1,9 @@
 .nav-link:hover {
     @apply text-blue-500;
   }
+
+  .image-container {
+    content-visibility: auto;
+    contain-intrinsic-size: 400px 300px;
+    border: 1px solid red !important;
+  }
