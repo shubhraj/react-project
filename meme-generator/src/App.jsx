@@ -3,6 +3,8 @@ import Body from './components/Body';
 import './App.css';
 import Accordion from "./components/Accordion";
 import Stopwatch from "./components/Stopwatch";
+import CommentBox from "./components/comments/CommentBox";
+import Comments from "./components/comments/Comments";
 
 function App() {
 
@@ -18,6 +20,10 @@ function App() {
     {
       path: "/stopwatch",
       element: <Stopwatch/>
+    },
+    {
+      path: "/comments",
+      element: <Comments/>
     }
   ]);
 
@@ -29,6 +35,7 @@ function App() {
           <a href='/' className='nav-link'> Meme Generator</a>
           <a href='/accordion' className='nav-link'> Accordion</a>
           <a href='/stopwatch' className='nav-link'> Stopwatch</a>
+          <a href='/comments' className='nav-link'> Comments</a>
         </nav>   
       </header>
     
