@@ -5,6 +5,7 @@ import Accordion from "./components/Accordion";
 import Stopwatch from "./components/Stopwatch";
 import CommentBox from "./components/comments/CommentBox";
 import Comments from "./components/comments/Comments";
+import Pagination from "./components/pagination/Pagination";
 
 function App() {
 
@@ -24,6 +25,10 @@ function App() {
     {
       path: "/comments",
       element: <Comments/>
+    },
+    {
+      path: "/pagination",
+      element: <Pagination/>
     }
   ]);
 
@@ -36,6 +41,7 @@ function App() {
           <a href='/accordion' className='nav-link'> Accordion</a>
           <a href='/stopwatch' className='nav-link'> Stopwatch</a>
           <a href='/comments' className='nav-link'> Comments</a>
+          <a href='/pagination' className='nav-link'>Pagination</a>
         </nav>   
       </header>
     
